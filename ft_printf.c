@@ -1,0 +1,58 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rhrandri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/30 09:08:44 by rhrandri          #+#    #+#             */
+/*   Updated: 2026/02/06 13:27:31 by rhrandri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "printf.h"
+
+static int	ft_conversion(const char type, va_list vargs)
+{
+	if (type == 'c')
+		return (ft_putchar(va_arg(vargs, int)));
+	else if (type == 'u')
+		return (ft_putnbr(va_arg(vargs, unsigned int)));
+	else if (type == 'i' || type == 'd')
+		return (ft_putnbr(va_arg(vargs, int)));
+	else if (type == 'x' || type == 'X')
+		return (ft_putnbr_hexa(va_arg(vargs, unsigned int), type));
+	else if (type == 'p')
+		return (ft_putptr(va_arg(vargs, void *)));
+	else if (type == '%')
+		return (ft_putchar("%"));
+}
+
+int	ft_printf(char const *format, ...)
+{
+	va_list	vargs;
+	int		len;
+	int		check;
+
+	va_start(vargs, format);
+	len = 0;
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			check = ft_conversion(*(++format), vargs);
+			if (check == -1)
+				return (-1);
+			len += check;
+		}
+		else
+		{
+			if (write(1, format, 1) == -1)
+				return (-1);
+			len++;
+		}
+		format++;
+	}
+	va_end(vargs);
+	return (len);
+}
