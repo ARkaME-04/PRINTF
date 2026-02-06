@@ -6,11 +6,11 @@
 /*   By: rhrandri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 10:47:37 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/02/06 11:14:54 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/02/06 13:49:28 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {
