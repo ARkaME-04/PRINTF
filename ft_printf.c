@@ -6,11 +6,11 @@
 /*   By: rhrandri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 09:08:44 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/02/06 13:27:31 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/02/06 14:14:53 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 static int	ft_conversion(const char type, va_list vargs)
 {
@@ -25,10 +25,11 @@ static int	ft_conversion(const char type, va_list vargs)
 	else if (type == 'p')
 		return (ft_putptr(va_arg(vargs, void *)));
 	else if (type == '%')
-		return (ft_putchar("%"));
+		return (ft_putchar('%''));
+	return (-1);
 }
 
-int	ft_printf(char const *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	va_list	vargs;
 	int		len;
@@ -37,7 +38,7 @@ int	ft_printf(char const *format, ...)
 	va_start(vargs, format);
 	len = 0;
 	while (*format)
-	{
+	
 		if (*format == '%')
 		{
 			check = ft_conversion(*(++format), vargs);
