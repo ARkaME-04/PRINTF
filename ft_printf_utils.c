@@ -6,7 +6,7 @@
 /*   By: rhrandri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 10:47:37 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/02/06 13:49:28 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/02/09 07:39:12 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_putnbr(long nb)
 		if (write(1, "-", 1) == -1)
 			return (-1);
 		len += 1;
-		nb *= -1;
+		nb = -nb;
 	}
 	nm = nb % 10 + '0';
 	if (nb > 9)
@@ -100,6 +100,8 @@ int	ft_putptr(void *ptr)
 
 	len = 0;
 	aux = 0;
+	if (!ptr)
+		return (ft_putstr("(nil)"));
 	if (ft_putstr("0x") == -1)
 		return (-1);
 	len += 2;
