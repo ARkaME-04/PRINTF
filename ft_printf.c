@@ -6,7 +6,7 @@
 /*   By: rhrandri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 09:08:44 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/02/06 14:14:53 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/02/09 07:35:24 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static int	ft_conversion(const char type, va_list vargs)
 {
 	if (type == 'c')
 		return (ft_putchar(va_arg(vargs, int)));
+	else if (type == 's')
+		return (ft_putstr(va_arg(vargs, char *)));
 	else if (type == 'u')
 		return (ft_putnbr(va_arg(vargs, unsigned int)));
 	else if (type == 'i' || type == 'd')
@@ -25,7 +27,7 @@ static int	ft_conversion(const char type, va_list vargs)
 	else if (type == 'p')
 		return (ft_putptr(va_arg(vargs, void *)));
 	else if (type == '%')
-		return (ft_putchar('%''));
+		return (ft_putchar('%'));
 	return (-1);
 }
 
@@ -38,11 +40,11 @@ int	ft_printf(const char *format, ...)
 	va_start(vargs, format);
 	len = 0;
 	while (*format)
-	
+	{
 		if (*format == '%')
 		{
 			check = ft_conversion(*(++format), vargs);
-			if (check == -1)
+			if (check == -1 || !*format)
 				return (-1);
 			len += check;
 		}
