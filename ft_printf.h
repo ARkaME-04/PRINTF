@@ -6,12 +6,12 @@
 /*   By: rhrandri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 09:09:23 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/02/06 13:43:10 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/02/09 07:09:16 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdarg.h>
 # include <unistd.h>
@@ -21,6 +21,6 @@ int	ft_putchar(char c);
 int	ft_putnbr(long n);
 int	ft_putnbr_hexa(unsigned long n, char up);
 int	ft_putstr(char *str);
-int	fT_putptr(void *ptr);
+int	ft_putptr(void *ptr);
 
 #endif
