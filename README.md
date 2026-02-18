@@ -1,4 +1,4 @@
-> This project has been created as part of the 42 curriculum by **rhrandri.**
+> _This project has been created as part of the 42 curriculum by **rhrandri.**_
 
 <p align="center">
   <img src="https://github.com/mcombeau/mcombeau/blob/main/42_badges/ft_printfe.png" alt="ft_printf 42 project badge"/>
