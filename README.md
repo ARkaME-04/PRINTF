@@ -68,3 +68,6 @@ Most of the research were done on Google Search Engine, apart, some other 42 stu
 **AI usage :** As we all know, AI could just do all the work for us, but in this case it didn't, it was used only on syntax fixes, no blatant code at all. Syntax errors were a pain to repair manually, debugging also take so much time which I clearly don't have enough, so in that case i had to use some tools i had in hand.
 
 ***`NOTE:`*** **THIS DOESN'T INCLUDE USAGE OF MEMORY ALLOCATION SINCE IT'S WE ARE REQUIRED TO NOT USE ORIGINAL BUFFER MANAGEMENT OF PRINTF**.
+
+# Status
+> Finished with maxed grade without bonus
