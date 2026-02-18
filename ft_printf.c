@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rhrandri <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rhrandri <rhrandri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 09:08:44 by rhrandri          #+#    #+#             */
-/*   Updated: 2026/02/09 07:35:24 by rhrandri         ###   ########.fr       */
+/*   Updated: 2026/02/18 09:58:47 by rhrandri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,13 @@ static int	ft_conversion(const char type, va_list vargs)
 	return (-1);
 }
 
-int	ft_printf(const char *format, ...)
+static int	loop(const char *format, va_list vargs)
 {
-	va_list	vargs;
 	int		len;
 	int		check;
 
-	va_start(vargs, format);
 	len = 0;
-	while (*format)
+	while (*format && format)
 	{
 		if (*format == '%')
 		{
@@ -56,6 +54,18 @@ int	ft_printf(const char *format, ...)
 		}
 		format++;
 	}
+	return (len);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	va_list	vargs;
+	int		len;
+
+	if (!format)
+		return (-1);
+	va_start(vargs, format);
+	len = loop(format, vargs);
 	va_end(vargs);
 	return (len);
 }
